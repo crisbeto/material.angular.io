@@ -42,7 +42,7 @@ function MatOption_span_3_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵtextInterpolate1("(", ctx_r1.group.label, ")");
 } }
 const _c2 = ["*"];
-const VERSION$1 = new Version('12.0.2');
+const VERSION$1 = new Version('12.0.3');
 
 /**
  * @license
@@ -76,7 +76,7 @@ AnimationDurations.EXITING = '195ms';
 // i.e. avoid core to depend on the @angular/material primary entry-point
 // Can be removed once the Material primary entry-point no longer
 // re-exports all secondary entry-points
-const VERSION = new Version('12.0.2');
+const VERSION = new Version('12.0.3');
 /** @docs-private */
 function MATERIAL_SANITY_CHECKS_FACTORY() {
     return true;

@@ -65,9 +65,9 @@ export declare abstract class _MatAutocompleteBase extends _MatAutocompleteMixin
     template: TemplateRef<any>;
     /** Element for the panel containing the autocomplete options. */
     panel: ElementRef;
-    /** @docs-private */
+    /** Reference to all options within the autocomplete. */
     abstract options: QueryList<_MatOptionBase>;
-    /** @docs-private */
+    /** Reference to all option groups within the autocomplete. */
     abstract optionGroups: QueryList<_MatOptgroupBase>;
     /** Aria label of the autocomplete. */
     ariaLabel: string;
@@ -134,7 +134,9 @@ export declare abstract class _MatAutocompleteBase extends _MatAutocompleteMixin
     static ɵdir: ɵngcc0.ɵɵDirectiveDeclaration<_MatAutocompleteBase, never, never, { "displayWith": "displayWith"; "autoActiveFirstOption": "autoActiveFirstOption"; "classList": "class"; "ariaLabel": "aria-label"; "ariaLabelledby": "aria-labelledby"; "panelWidth": "panelWidth"; }, { "optionSelected": "optionSelected"; "opened": "opened"; "closed": "closed"; "optionActivated": "optionActivated"; }, never>;
 }
 export declare class MatAutocomplete extends _MatAutocompleteBase {
+    /** Reference to all option groups within the autocomplete. */
     optionGroups: QueryList<MatOptgroup>;
+    /** Reference to all options within the autocomplete. */
     options: QueryList<MatOption>;
     protected _visibleClass: string;
     protected _hiddenClass: string;
