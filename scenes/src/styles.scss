@@ -2,6 +2,7 @@
 @use '@angular/material' as mat;
 
 @include mat.core();
+@include mat.legacy-core();
 
 $_primary: mat.define-palette(mat.$red-palette, 500, 200, 900);
 $_accent: mat.define-palette(mat.$red-palette, 500, 200, 700);
@@ -31,6 +32,7 @@ $_foreground: map.merge($_foreground, (
 $_theme: map.merge($_theme, (foreground: $_foreground));
 
 @include mat.all-component-themes($_theme);
+@include mat.all-legacy-component-themes($_theme);
 
 body {
   margin: 0;

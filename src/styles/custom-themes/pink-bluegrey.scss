@@ -8,4 +8,5 @@ $_accent:  mat.define-palette(mat.$blue-grey-palette);
 $_theme: mat.define-dark-theme($_primary, $_accent);
 
 @include mat.all-component-themes($_theme);
+@include mat.all-legacy-component-themes($_theme);
 @include app-theme.theme($_theme);
