@@ -1,7 +1,7 @@
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import { enableProdMode, ErrorHandler, importProvidersFrom } from '@angular/core';
 import {environment} from './environments/environment';
-import {AppModule} from './app/';
+
 import {unregisterServiceWorkers} from './unregister-service-workers';
 import { MaterialDocsApp } from "./app/material-docs-app";
 import { NavBarModule } from "./app/shared/navbar";
