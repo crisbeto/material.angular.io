@@ -26,7 +26,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 import { Platform } from '@angular/cdk/platform';
 
-@NgModule({
+@NgModule(/* TODO(standalone-migration): clean up removed NgModule class manually or run the "Remove unnecessary NgModule classes" step of the migration again. 
+{
   declarations: [
     AppComponent
   ],
@@ -48,6 +49,6 @@ import { Platform } from '@angular/cdk/platform';
       useFactory: (doc: any, platform: Platform) => new SceneOverlayContainer(doc, platform),
       deps: [DOCUMENT, Platform]
     }]
-})
+} */)
 export class AppModule {
 }

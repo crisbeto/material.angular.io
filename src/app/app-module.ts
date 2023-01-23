@@ -14,7 +14,8 @@ import {CookiePopup} from './shared/cookie-popup/cookie-popup';
 const prefersReducedMotion =
   typeof matchMedia === 'function' ? matchMedia('(prefers-reduced-motion)').matches : false;
 
-@NgModule({
+@NgModule(/* TODO(standalone-migration): clean up removed NgModule class manually or run the "Remove unnecessary NgModule classes" step of the migration again. 
+{
   imports: [
     BrowserModule,
     BrowserAnimationsModule.withConfig({ disableAnimations: prefersReducedMotion }),
@@ -31,5 +32,5 @@ const prefersReducedMotion =
     {provide: ErrorHandler, useClass: AnalyticsErrorReportHandler},
   ],
   bootstrap: [MaterialDocsApp],
-})
+} */)
 export class AppModule {}
