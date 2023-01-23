@@ -4,10 +4,11 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @Component({
-  selector: 'app-snack-bar-scene',
-  template: '<div class="docs-scene-snackbar-background"></div>',
-  styleUrls: ['./snack-bar-scene.scss'],
-  encapsulation: ViewEncapsulation.None,
+    selector: 'app-snack-bar-scene',
+    template: '<div class="docs-scene-snackbar-background"></div>',
+    styleUrls: ['./snack-bar-scene.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: true
 })
 export class SnackBarScene {
   constructor(snackbar: MatSnackBar) {
@@ -16,8 +17,7 @@ export class SnackBarScene {
 }
 
 @NgModule({
-  imports: [NoopAnimationsModule, MatSnackBarModule],
-  declarations: [SnackBarScene],
-  exports: [SnackBarScene],
+    imports: [NoopAnimationsModule, MatSnackBarModule, SnackBarScene],
+    exports: [SnackBarScene]
 })
 export class SnackBarSceneModule { }

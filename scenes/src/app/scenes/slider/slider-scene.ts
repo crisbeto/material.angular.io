@@ -4,10 +4,12 @@ import {MatSlider, MatSliderModule} from '@angular/material/slider';
 
 
 @Component({
-  encapsulation: ViewEncapsulation.None,
-  selector: 'app-slider-scene',
-  templateUrl: './slider-scene.html',
-  styleUrls: ['./slider-scene.scss']
+    encapsulation: ViewEncapsulation.None,
+    selector: 'app-slider-scene',
+    templateUrl: './slider-scene.html',
+    styleUrls: ['./slider-scene.scss'],
+    standalone: true,
+    imports: [MatIconModule, MatSliderModule]
 })
 export class SliderScene implements AfterViewInit {
   @ViewChild('volume') volume!: MatSlider;
@@ -19,12 +21,9 @@ export class SliderScene implements AfterViewInit {
 }
 
 @NgModule({
-  imports: [
-    MatIconModule,
-    MatSliderModule
-  ],
-  exports: [SliderScene],
-  declarations: [SliderScene]
+    imports: [MatIconModule,
+        MatSliderModule, SliderScene],
+    exports: [SliderScene]
 })
 export class SliderSceneModule {}
 

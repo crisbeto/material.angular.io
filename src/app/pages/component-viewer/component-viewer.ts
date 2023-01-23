@@ -1,5 +1,5 @@
 import {BreakpointObserver} from '@angular/cdk/layout';
-import {CommonModule} from '@angular/common';
+import { CommonModule, NgForOf, NgIf, AsyncPipe } from '@angular/common';
 import {
   ChangeDetectorRef,
   Component,
@@ -13,7 +13,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import {MatTabsModule} from '@angular/material/tabs';
-import {ActivatedRoute, Params, Router, RouterModule} from '@angular/router';
+import { ActivatedRoute, Params, Router, RouterModule, RouterLinkActive, RouterLink, RouterOutlet } from '@angular/router';
 import {combineLatest, Observable, ReplaySubject, Subject} from 'rxjs';
 import {map, skip, takeUntil} from 'rxjs/operators';
 import {DocViewerModule} from '../../shared/doc-viewer/doc-viewer-module';
@@ -21,15 +21,18 @@ import {DocItem, DocumentationItems} from '../../shared/documentation-items/docu
 import {TableOfContents} from '../../shared/table-of-contents/table-of-contents';
 import {TableOfContentsModule} from '../../shared/table-of-contents/table-of-contents.module';
 import {ComponentPageTitle} from '../page-title/page-title';
-import {NavigationFocusModule} from '../../shared/navigation-focus/navigation-focus';
+import { NavigationFocusModule, NavigationFocus } from '../../shared/navigation-focus/navigation-focus';
 import {DocViewer} from '../../shared/doc-viewer/doc-viewer';
+import { ExampleViewer } from "../../shared/example-viewer/example-viewer";
 
 
 @Component({
-  selector: 'app-component-viewer',
-  templateUrl: './component-viewer.html',
-  styleUrls: ['./component-viewer.scss'],
-  encapsulation: ViewEncapsulation.None,
+    selector: 'app-component-viewer',
+    templateUrl: './component-viewer.html',
+    styleUrls: ['./component-viewer.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: true,
+    imports: [MatTabsModule, NavigationFocus, NgForOf, RouterLinkActive, RouterLink, RouterOutlet]
 })
 export class ComponentViewer implements OnDestroy {
   componentDocItem = new ReplaySubject<DocItem>(1);
@@ -131,9 +134,11 @@ export class ComponentBaseView implements OnInit, OnDestroy {
 }
 
 @Component({
-  selector: 'component-overview',
-  templateUrl: './component-overview.html',
-  encapsulation: ViewEncapsulation.None,
+    selector: 'component-overview',
+    templateUrl: './component-overview.html',
+    encapsulation: ViewEncapsulation.None,
+    standalone: true,
+    imports: [NgIf, DocViewer, TableOfContents, AsyncPipe]
 })
 export class ComponentOverview extends ComponentBaseView {
   constructor(
@@ -156,10 +161,12 @@ export class ComponentOverview extends ComponentBaseView {
 }
 
 @Component({
-  selector: 'component-api',
-  templateUrl: './component-api.html',
-  styleUrls: ['./component-api.scss'],
-  encapsulation: ViewEncapsulation.None,
+    selector: 'component-api',
+    templateUrl: './component-api.html',
+    styleUrls: ['./component-api.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: true,
+    imports: [NgIf, DocViewer, NgForOf, TableOfContents, AsyncPipe]
 })
 export class ComponentApi extends ComponentBaseView {
   constructor(
@@ -177,9 +184,11 @@ export class ComponentApi extends ComponentBaseView {
 }
 
 @Component({
-  selector: 'component-examples',
-  templateUrl: './component-examples.html',
-  encapsulation: ViewEncapsulation.None,
+    selector: 'component-examples',
+    templateUrl: './component-examples.html',
+    encapsulation: ViewEncapsulation.None,
+    standalone: true,
+    imports: [NgIf, NgForOf, ExampleViewer, AsyncPipe]
 })
 export class ComponentExamples extends ComponentBaseView {
   constructor(
@@ -192,16 +201,13 @@ export class ComponentExamples extends ComponentBaseView {
 }
 
 @NgModule({
-  imports: [
-    MatTabsModule,
-    RouterModule,
-    DocViewerModule,
-    CommonModule,
-    TableOfContentsModule,
-    NavigationFocusModule,
-  ],
-  exports: [ComponentViewer],
-  declarations: [ComponentViewer, ComponentOverview, ComponentApi, ComponentExamples],
-  providers: [DocumentationItems],
+    imports: [MatTabsModule,
+        RouterModule,
+        DocViewerModule,
+        CommonModule,
+        TableOfContentsModule,
+        NavigationFocusModule, ComponentViewer, ComponentOverview, ComponentApi, ComponentExamples],
+    exports: [ComponentViewer],
+    providers: [DocumentationItems]
 })
 export class ComponentViewerModule {}

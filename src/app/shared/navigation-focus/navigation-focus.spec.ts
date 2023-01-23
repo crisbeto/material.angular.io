@@ -18,15 +18,14 @@ describe('Navigation focus service', () => {
 
   beforeEach(() => {
       TestBed.configureTestingModule({
-        imports: [RouterTestingModule.withRoutes([
-          {path: '', component: RouteTest},
-          {path: 'cdk', component: RouteTest},
-          {path: 'guides', component: RouteTest}
+    imports: [RouterTestingModule.withRoutes([
+            { path: '', component: RouteTest },
+            { path: 'cdk', component: RouteTest },
+            { path: 'guides', component: RouteTest }
         ]),
-        NavigationFocusModule],
-        providers: [NavigationFocusService],
-        declarations: [NavigationFocusTest, RouteTest],
-      });
+        NavigationFocusModule, NavigationFocusTest, RouteTest],
+    providers: [NavigationFocusService]
+});
       fixture = TestBed.createComponent(NavigationFocusTest);
     }
   );
@@ -121,12 +120,19 @@ describe('Navigation focus service', () => {
 });
 
 @Component({
-  selector: 'navigation-focus-test',
-  template: `
+    selector: 'navigation-focus-test',
+    template: `
     <button id="target1">Target 1</button>
     <button id="target2">Target 2</button>
     <button class="no-id" focusOnNavigation>Target 3</button>
-  `
+  `,
+    standalone: true,
+    imports: [RouterTestingModule.withRoutes([
+            { path: '', component: RouteTest },
+            { path: 'cdk', component: RouteTest },
+            { path: 'guides', component: RouteTest }
+        ]),
+        NavigationFocusModule]
 })
 class NavigationFocusTest {
 }

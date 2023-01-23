@@ -3,9 +3,10 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 
 @Component({
-  encapsulation: ViewEncapsulation.None,
-  selector: 'app-dialog-scene',
-  template: ''
+    encapsulation: ViewEncapsulation.None,
+    selector: 'app-dialog-scene',
+    template: '',
+    standalone: true
 })
 export class DialogScene {
   constructor(public dialog: MatDialog) {
@@ -20,33 +21,29 @@ export class DialogScene {
 }
 
 @NgModule({
-  imports: [
-    MatButtonModule
-  ],
-  exports: [DialogScene],
-  declarations: [DialogScene]
+    imports: [MatButtonModule, DialogScene],
+    exports: [DialogScene]
 })
 export class DialogSceneModule {
 }
 
 @Component({
-  selector: 'app-dialog-scene-example-dialog',
-  template: `
+    selector: 'app-dialog-scene-example-dialog',
+    template: `
     <div mat-dialog-content>Discard draft?</div>
     <div mat-dialog-actions>
       <button mat-button mat-dialog-close>Cancel</button>
       <button mat-button mat-dialog-close>Discard</button>
     </div>`,
+    standalone: true,
+    imports: [MatDialogModule, MatButtonModule]
 })
 export class DialogSceneExampleDialog {}
 
 @NgModule({
-  imports: [
-    MatDialogModule,
-    MatButtonModule
-  ],
-  exports: [DialogSceneExampleDialog],
-  declarations: [DialogSceneExampleDialog]
+    imports: [MatDialogModule,
+        MatButtonModule, DialogSceneExampleDialog],
+    exports: [DialogSceneExampleDialog]
 })
 export class DialogSceneExampleDialogModule {
 }

@@ -1,12 +1,14 @@
-import {CommonModule} from '@angular/common';
+import { CommonModule, NgForOf } from '@angular/common';
 import {Component, NgModule, ViewEncapsulation} from '@angular/core';
 import {MatGridListModule} from '@angular/material/grid-list';
 
 @Component({
-  selector: 'app-grid-list-scene',
-  templateUrl: './grid-list-scene.html',
-  styleUrls: ['./grid-list-scene.scss'],
-  encapsulation: ViewEncapsulation.None,
+    selector: 'app-grid-list-scene',
+    templateUrl: './grid-list-scene.html',
+    styleUrls: ['./grid-list-scene.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: true,
+    imports: [MatGridListModule, NgForOf]
 })
 export class GridListScene {
   tiles = [
@@ -18,12 +20,9 @@ export class GridListScene {
 }
 
 @NgModule({
-  imports: [
-    MatGridListModule,
-    CommonModule
-  ],
-  exports: [GridListScene],
-  declarations: [GridListScene],
+    imports: [MatGridListModule,
+        CommonModule, GridListScene],
+    exports: [GridListScene]
 })
 export class GridListSceneModule {}
 

@@ -22,11 +22,11 @@ describe('GuideViewer', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [GuideViewerModule, DocsAppTestingModule],
-      providers: [
-        {provide: ActivatedRoute, useValue: mockActivatedRoute},
-      ]
-    }).compileComponents();
+    imports: [GuideViewerModule, DocsAppTestingModule],
+    providers: [
+        { provide: ActivatedRoute, useValue: mockActivatedRoute },
+    ]
+}).compileComponents();
   }));
 
   beforeEach(() => {

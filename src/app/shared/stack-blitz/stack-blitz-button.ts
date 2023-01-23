@@ -7,8 +7,10 @@ import {StackBlitzWriter} from './stack-blitz-writer';
 import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 
 @Component({
-  selector: 'stack-blitz-button',
-  templateUrl: './stack-blitz-button.html',
+    selector: 'stack-blitz-button',
+    templateUrl: './stack-blitz-button.html',
+    standalone: true,
+    imports: [MatButtonModule, MatTooltipModule, MatIconModule]
 })
 export class StackBlitzButton {
   exampleData: ExampleData | undefined;
@@ -58,9 +60,8 @@ export class StackBlitzButton {
 }
 
 @NgModule({
-  imports: [MatTooltipModule, MatButtonModule, MatIconModule, MatSnackBarModule],
-  exports: [StackBlitzButton],
-  declarations: [StackBlitzButton],
-  providers: [StackBlitzWriter],
+    imports: [MatTooltipModule, MatButtonModule, MatIconModule, MatSnackBarModule, StackBlitzButton],
+    exports: [StackBlitzButton],
+    providers: [StackBlitzWriter]
 })
 export class StackBlitzButtonModule {}

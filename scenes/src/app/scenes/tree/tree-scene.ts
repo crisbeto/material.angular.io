@@ -32,9 +32,11 @@ interface FileFlatNode {
 }
 
 @Component({
-  selector: 'app-tree-scene',
-  templateUrl: './tree-scene.html',
-  styleUrls: ['./tree-scene.scss'],
+    selector: 'app-tree-scene',
+    templateUrl: './tree-scene.html',
+    styleUrls: ['./tree-scene.scss'],
+    standalone: true,
+    imports: [MatTreeModule, MatIconModule, MatButtonModule]
 })
 export class TreeScene {
   treeControl = new FlatTreeControl<FileFlatNode>(
@@ -69,8 +71,7 @@ export class TreeScene {
 }
 
 @NgModule({
-  imports: [MatIconModule, MatTreeModule, MatButtonModule],
-  exports: [TreeScene],
-  declarations: [TreeScene],
+    imports: [MatIconModule, MatTreeModule, MatButtonModule, TreeScene],
+    exports: [TreeScene]
 })
 export class TreeSceneModule {}

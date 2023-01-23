@@ -17,11 +17,11 @@ describe('ComponentCategoryList', () => {
     };
 
     TestBed.configureTestingModule({
-      imports: [ComponentCategoryListModule, DocsAppTestingModule],
-      providers: [
-        {provide: ActivatedRoute, useValue: fakeActivatedRoute}
-      ]
-    }).compileComponents();
+    imports: [ComponentCategoryListModule, DocsAppTestingModule],
+    providers: [
+        { provide: ActivatedRoute, useValue: fakeActivatedRoute }
+    ]
+}).compileComponents();
   }));
 
   beforeEach(() => {

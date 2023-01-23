@@ -4,10 +4,12 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule, MatMenuTrigger} from '@angular/material/menu';
 
 @Component({
-  encapsulation: ViewEncapsulation.None,
-  selector: 'app-button-scene',
-  templateUrl: './menu-scene.html',
-  styleUrls: ['./menu-scene.scss']
+    encapsulation: ViewEncapsulation.None,
+    selector: 'app-button-scene',
+    templateUrl: './menu-scene.html',
+    styleUrls: ['./menu-scene.scss'],
+    standalone: true,
+    imports: [MatButtonModule, MatMenuModule, MatIconModule]
 })
 export class MenuScene implements AfterViewInit {
   @ViewChild('menuTrigger') trigger!: MatMenuTrigger;
@@ -18,13 +20,10 @@ export class MenuScene implements AfterViewInit {
 }
 
 @NgModule({
-  imports: [
-    MatButtonModule,
-    MatIconModule,
-    MatMenuModule,
-  ],
-  exports: [MenuScene],
-  declarations: [MenuScene]
+    imports: [MatButtonModule,
+        MatIconModule,
+        MatMenuModule, MenuScene],
+    exports: [MenuScene]
 })
 export class MenuSceneModule {
 }

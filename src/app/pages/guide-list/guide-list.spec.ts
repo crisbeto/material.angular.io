@@ -8,8 +8,8 @@ describe('GuideList', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [GuideListModule, DocsAppTestingModule],
-    }).compileComponents();
+    imports: [GuideListModule, DocsAppTestingModule]
+}).compileComponents();
   }));
 
   beforeEach(() => {

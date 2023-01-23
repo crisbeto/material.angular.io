@@ -5,10 +5,11 @@ import {MatListModule} from '@angular/material/list';
 
 
 @Component({
-  selector: 'app-bottom-sheet-scene',
-  template: '',
-  styleUrls: ['./bottom-sheet-scene.scss'],
-  encapsulation: ViewEncapsulation.None,
+    selector: 'app-bottom-sheet-scene',
+    template: '',
+    styleUrls: ['./bottom-sheet-scene.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: true
 })
 export class BottomSheetScene implements AfterViewInit {
   constructor(private _bottomSheet: MatBottomSheet) {}
@@ -19,21 +20,20 @@ export class BottomSheetScene implements AfterViewInit {
 }
 
 @Component({
-  encapsulation: ViewEncapsulation.None,
-  selector: 'app-bottom-sheet-scene',
-  templateUrl: './bottom-sheet-scene.html',
-  styleUrls: ['./bottom-sheet-scene.scss']
+    encapsulation: ViewEncapsulation.None,
+    selector: 'app-bottom-sheet-scene',
+    templateUrl: './bottom-sheet-scene.html',
+    styleUrls: ['./bottom-sheet-scene.scss'],
+    standalone: true,
+    imports: [MatListModule, MatIconModule]
 })
 export class SampleBottomSheet {}
 
 @NgModule({
-  imports: [
-    MatBottomSheetModule,
-    MatIconModule,
-    MatListModule,
-  ],
-  exports: [BottomSheetScene, SampleBottomSheet],
-  declarations: [BottomSheetScene, SampleBottomSheet],
+    imports: [MatBottomSheetModule,
+        MatIconModule,
+        MatListModule, BottomSheetScene, SampleBottomSheet],
+    exports: [BottomSheetScene, SampleBottomSheet]
 })
 export class BottomSheetSceneModule {
 }

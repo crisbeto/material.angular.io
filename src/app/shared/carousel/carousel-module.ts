@@ -5,9 +5,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {Carousel, CarouselItem} from './carousel';
 
 @NgModule({
-  imports: [CommonModule, MatIconModule, MatButtonModule],
-  exports: [Carousel, CarouselItem],
-  declarations: [Carousel, CarouselItem],
+    imports: [CommonModule, MatIconModule, MatButtonModule, Carousel, CarouselItem],
+    exports: [Carousel, CarouselItem]
 })
 export class CarouselModule {
 }

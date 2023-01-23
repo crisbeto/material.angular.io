@@ -7,10 +7,12 @@ import {
 import {DocViewer} from '../doc-viewer/doc-viewer';
 
 @Component({
-  selector: 'code-snippet',
-  templateUrl: './code-snippet.html',
-  styleUrls: ['./example-viewer.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'code-snippet',
+    templateUrl: './code-snippet.html',
+    styleUrls: ['./example-viewer.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [DocViewer]
 })
 export class CodeSnippet {
   @Input() source: string | undefined;

@@ -7,19 +7,18 @@ import {CommonModule} from '@angular/common';
     encapsulation: ViewEncapsulation.None,
     selector: 'app-list-scene',
     templateUrl: './list-scene.html',
-    styleUrls: ['./list-scene.scss']
+    styleUrls: ['./list-scene.scss'],
+    standalone: true,
+    imports: [MatListModule, MatIconModule]
 })
 export class ListScene {
 }
 
 @NgModule({
-  imports: [
-    MatListModule,
-    MatIconModule,
-    CommonModule,
-  ],
-    exports: [ListScene],
-    declarations: [ListScene]
+    imports: [MatListModule,
+        MatIconModule,
+        CommonModule, ListScene],
+    exports: [ListScene]
 })
 export class ListSceneModule {
 }

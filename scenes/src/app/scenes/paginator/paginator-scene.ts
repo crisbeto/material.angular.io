@@ -3,19 +3,18 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @Component({
-  encapsulation: ViewEncapsulation.None,
-  selector: 'app-paginator-scene',
-  templateUrl: './paginator-scene.html',
-  styleUrls: ['./paginator-scene.scss']
+    encapsulation: ViewEncapsulation.None,
+    selector: 'app-paginator-scene',
+    templateUrl: './paginator-scene.html',
+    styleUrls: ['./paginator-scene.scss'],
+    standalone: true,
+    imports: [MatPaginatorModule]
 })
 export class PaginatorScene {
 }
 
 @NgModule({
-  imports: [
-    MatPaginatorModule
-  ],
-  exports: [PaginatorScene],
-  declarations: [PaginatorScene]
+    imports: [MatPaginatorModule, PaginatorScene],
+    exports: [PaginatorScene]
 })
 export class PaginatorSceneModule {}

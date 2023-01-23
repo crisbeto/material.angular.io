@@ -3,20 +3,19 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 @Component({
-  encapsulation: ViewEncapsulation.None,
-  selector: 'app-progress-bar-scene',
-  templateUrl: './progress-bar-scene.html',
-  styleUrls: ['./progress-bar-scene.scss']
+    encapsulation: ViewEncapsulation.None,
+    selector: 'app-progress-bar-scene',
+    templateUrl: './progress-bar-scene.html',
+    styleUrls: ['./progress-bar-scene.scss'],
+    standalone: true,
+    imports: [MatProgressBarModule]
 })
 export class ProgressBarScene {
 }
 
 @NgModule({
-  imports: [
-    MatProgressBarModule
-  ],
-  exports: [ProgressBarScene],
-  declarations: [ProgressBarScene]
+    imports: [MatProgressBarModule, ProgressBarScene],
+    exports: [ProgressBarScene]
 })
 export class ProgressBarSceneModule {}
 

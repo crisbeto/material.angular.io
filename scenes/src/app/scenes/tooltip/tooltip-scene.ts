@@ -4,10 +4,12 @@ import {MatTooltipModule, MatTooltip} from '@angular/material/tooltip';
 import {MatIconModule} from '@angular/material/icon';
 
 @Component({
-  encapsulation: ViewEncapsulation.None,
-  selector: 'app-tooltip-scene',
-  templateUrl: './tooltip-scene.html',
-  styleUrls: ['./tooltip-scene.scss'],
+    encapsulation: ViewEncapsulation.None,
+    selector: 'app-tooltip-scene',
+    templateUrl: './tooltip-scene.html',
+    styleUrls: ['./tooltip-scene.scss'],
+    standalone: true,
+    imports: [MatButtonModule, MatTooltipModule, MatIconModule]
 })
 export class TooltipScene implements AfterViewInit {
   @ViewChild(MatTooltip) tooltip!: MatTooltip;
@@ -18,8 +20,7 @@ export class TooltipScene implements AfterViewInit {
 }
 
 @NgModule({
-  imports: [MatButtonModule, MatTooltipModule, MatIconModule],
-  exports: [TooltipScene],
-  declarations: [TooltipScene],
+    imports: [MatButtonModule, MatTooltipModule, MatIconModule, TooltipScene],
+    exports: [TooltipScene]
 })
 export class TooptipSceneModule {}

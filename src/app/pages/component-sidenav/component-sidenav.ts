@@ -1,7 +1,7 @@
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {CdkAccordionModule} from '@angular/cdk/accordion';
 import {BreakpointObserver} from '@angular/cdk/layout';
-import {CommonModule} from '@angular/common';
+import { CommonModule, NgIf, AsyncPipe, NgForOf } from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {
   Component,
@@ -17,7 +17,9 @@ import {FormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import {MatSidenav, MatSidenavModule, MatDrawerToggleResult} from '@angular/material/sidenav';
-import {ActivatedRoute, Params, RouterModule, Routes} from '@angular/router';
+import {
+  ActivatedRoute, Params, RouterModule, Routes, RouterOutlet, RouterLinkActive, RouterLink
+} from '@angular/router';
 import {combineLatest, Observable, Subscription} from 'rxjs';
 import {map} from 'rxjs/operators';
 
@@ -25,7 +27,7 @@ import {DocViewerModule} from '../../shared/doc-viewer/doc-viewer-module';
 import {
   DocumentationItems
 } from '../../shared/documentation-items/documentation-items';
-import {FooterModule} from '../../shared/footer/footer';
+import { FooterModule, Footer } from '../../shared/footer/footer';
 import {
   NavigationFocusModule
 } from '../../shared/navigation-focus/navigation-focus';
@@ -39,7 +41,7 @@ import {
   ComponentCategoryListModule
 } from '../component-category-list/component-category-list';
 import {
-  ComponentHeaderModule
+  ComponentHeaderModule, ComponentPageHeader
 } from '../component-page-header/component-page-header';
 import {
   ComponentApi,
@@ -60,10 +62,20 @@ const EXTRA_SMALL_WIDTH_BREAKPOINT = 720;
 const SMALL_WIDTH_BREAKPOINT = 959;
 
 @Component({
-  selector: 'app-component-sidenav',
-  templateUrl: './component-sidenav.html',
-  styleUrls: ['./component-sidenav.scss'],
-  encapsulation: ViewEncapsulation.None,
+    selector: 'app-component-sidenav',
+    templateUrl: './component-sidenav.html',
+    styleUrls: ['./component-sidenav.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: true,
+    imports: [
+      MatSidenavModule,
+      NgIf,
+      ComponentNav,
+      ComponentPageHeader,
+      RouterOutlet,
+      Footer,
+      AsyncPipe
+    ]
 })
 export class ComponentSidenav implements OnInit, OnDestroy {
   @ViewChild(MatSidenav) sidenav!: MatSidenav;
@@ -109,15 +121,17 @@ export class ComponentSidenav implements OnInit, OnDestroy {
 }
 
 @Component({
-  selector: 'app-component-nav',
-  templateUrl: './component-nav.html',
-  animations: [
-    trigger('bodyExpansion', [
-      state('collapsed', style({height: '0px', display: 'none'})),
-      state('expanded', style({height: '*', display: 'block'})),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4,0.0,0.2,1)')),
-    ]),
-  ],
+    selector: 'app-component-nav',
+    templateUrl: './component-nav.html',
+    animations: [
+        trigger('bodyExpansion', [
+            state('collapsed', style({ height: '0px', display: 'none' })),
+            state('expanded', style({ height: '*', display: 'block' })),
+            transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4,0.0,0.2,1)')),
+        ]),
+    ],
+    standalone: true,
+    imports: [NgIf, MatListModule, NgForOf, RouterLinkActive, RouterLink, AsyncPipe]
 })
 export class ComponentNav {
   @Input() params: Observable<Params> | undefined;
@@ -153,27 +167,24 @@ const routes: Routes = [{
 }];
 
 @NgModule({
-  imports: [
-    MatSidenavModule,
-    MatListModule,
-    RouterModule,
-    CommonModule,
-    ComponentCategoryListModule,
-    ComponentHeaderModule,
-    ComponentViewerModule,
-    DocViewerModule,
-    FooterModule,
-    FormsModule,
-    HttpClientModule,
-    CdkAccordionModule,
-    MatIconModule,
-    StackBlitzButtonModule,
-    SvgViewerModule,
-    RouterModule.forChild(routes),
-    NavigationFocusModule
-  ],
-  exports: [ComponentSidenav],
-  declarations: [ComponentSidenav, ComponentNav],
-  providers: [DocumentationItems],
+    imports: [MatSidenavModule,
+        MatListModule,
+        RouterModule,
+        CommonModule,
+        ComponentCategoryListModule,
+        ComponentHeaderModule,
+        ComponentViewerModule,
+        DocViewerModule,
+        FooterModule,
+        FormsModule,
+        HttpClientModule,
+        CdkAccordionModule,
+        MatIconModule,
+        StackBlitzButtonModule,
+        SvgViewerModule,
+        RouterModule.forChild(routes),
+        NavigationFocusModule, ComponentSidenav, ComponentNav],
+    exports: [ComponentSidenav],
+    providers: [DocumentationItems]
 })
 export class ComponentSidenavModule {}

@@ -4,21 +4,20 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 
 @Component({
-  encapsulation: ViewEncapsulation.None,
-  selector: 'app-sidenav-scene',
-  templateUrl: './sidenav-scene.html',
-  styleUrls: ['./sidenav-scene.scss']
+    encapsulation: ViewEncapsulation.None,
+    selector: 'app-sidenav-scene',
+    templateUrl: './sidenav-scene.html',
+    styleUrls: ['./sidenav-scene.scss'],
+    standalone: true,
+    imports: [MatSidenavModule, MatListModule, MatIconModule]
 })
 export class SidenavScene {
 }
 
 @NgModule({
-  imports: [
-    MatIconModule,
-    MatSidenavModule,
-    MatListModule
-  ],
-  exports: [SidenavScene],
-  declarations: [SidenavScene]
+    imports: [MatIconModule,
+        MatSidenavModule,
+        MatListModule, SidenavScene],
+    exports: [SidenavScene]
 })
 export class SidenavSceneModule {}

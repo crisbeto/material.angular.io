@@ -5,9 +5,11 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 
 @Component({
-  selector: 'component-page-header',
-  templateUrl: './component-page-header.html',
-  styleUrls: ['./component-page-header.scss']
+    selector: 'component-page-header',
+    templateUrl: './component-page-header.html',
+    styleUrls: ['./component-page-header.scss'],
+    standalone: true,
+    imports: [MatButtonModule, MatIconModule]
 })
 export class ComponentPageHeader {
   constructor(public _componentPageTitle: ComponentPageTitle) {}
@@ -20,8 +22,7 @@ export class ComponentPageHeader {
 }
 
 @NgModule({
-  imports: [MatButtonModule, MatIconModule, NavigationFocusModule],
-  exports: [ComponentPageHeader],
-  declarations: [ComponentPageHeader],
+    imports: [MatButtonModule, MatIconModule, NavigationFocusModule, ComponentPageHeader],
+    exports: [ComponentPageHeader]
 })
 export class ComponentHeaderModule { }

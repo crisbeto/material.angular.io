@@ -8,8 +8,8 @@ describe('ComponentPageHeader', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ComponentHeaderModule, DocsAppTestingModule],
-    }).compileComponents();
+    imports: [ComponentHeaderModule, DocsAppTestingModule]
+}).compileComponents();
   }));
 
   beforeEach(() => {

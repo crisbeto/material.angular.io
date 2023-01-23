@@ -3,21 +3,20 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 
 @Component({
-  encapsulation: ViewEncapsulation.None,
-  selector: 'app-button-scene',
-  templateUrl: './button-scene.html',
-  styleUrls: ['./button-scene.scss']
+    encapsulation: ViewEncapsulation.None,
+    selector: 'app-button-scene',
+    templateUrl: './button-scene.html',
+    styleUrls: ['./button-scene.scss'],
+    standalone: true,
+    imports: [MatButtonModule, MatIconModule]
 })
 export class ButtonScene {
 }
 
 @NgModule({
-  imports: [
-    MatButtonModule,
-    MatIconModule,
-  ],
-  exports: [ButtonScene],
-  declarations: [ButtonScene]
+    imports: [MatButtonModule,
+        MatIconModule, ButtonScene],
+    exports: [ButtonScene]
 })
 export class ButtonSceneModule {
 }

@@ -9,8 +9,8 @@ describe('Footer', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [FooterModule, DocsAppTestingModule],
-    }).compileComponents();
+    imports: [FooterModule, DocsAppTestingModule]
+}).compileComponents();
   }));
 
   beforeEach(() => {

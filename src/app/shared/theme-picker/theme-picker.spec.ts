@@ -5,8 +5,8 @@ import {DocsAppTestingModule} from '../../testing/testing-module';
 describe('ThemePicker', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ThemePickerModule, DocsAppTestingModule],
-    }).compileComponents();
+    imports: [ThemePickerModule, DocsAppTestingModule]
+}).compileComponents();
   }));
 
   it('should install theme based on name', () => {

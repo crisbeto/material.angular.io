@@ -9,8 +9,8 @@ describe('DocViewer', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      providers: [DocumentationItems]
-    }).compileComponents();
+    providers: [DocumentationItems]
+}).compileComponents();
   }));
 
   beforeEach(inject([DocumentationItems], (di: DocumentationItems) => {

@@ -4,20 +4,19 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
 @Component({
-  encapsulation: ViewEncapsulation.None,
-  selector: 'app-slide-toggle-scene',
-  templateUrl: './slide-toggle-scene.html',
-  styleUrls: ['./slide-toggle-scene.scss']
+    encapsulation: ViewEncapsulation.None,
+    selector: 'app-slide-toggle-scene',
+    templateUrl: './slide-toggle-scene.html',
+    styleUrls: ['./slide-toggle-scene.scss'],
+    standalone: true,
+    imports: [MatIconModule, MatSlideToggleModule]
 })
 export class SlideToggleScene {
 }
 
 @NgModule({
-  imports: [
-    MatIconModule,
-    MatSlideToggleModule,
-  ],
-  exports: [SlideToggleScene],
-  declarations: [SlideToggleScene]
+    imports: [MatIconModule,
+        MatSlideToggleModule, SlideToggleScene],
+    exports: [SlideToggleScene]
 })
 export class SlideToggleSceneModule {}

@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {Router} from '@angular/router';
+import { MatIconModule } from "@angular/material/icon";
 
 /**
  * Header link is a component that handles normalizing
@@ -14,14 +15,29 @@ import {Router} from '@angular/router';
  *
  *    <a href="/guide#foo">Foo</a>
  */
+/**
+ * Header link is a component that handles normalizing
+ * the anchor jump tags with the current route url.
+ *
+ * For example:
+ *
+ *    <a href="#foo">Foo</a>
+ *
+ * would result in the wrong url, this component
+ * combines the current route with that jump link:
+ *
+ *    <a href="/guide#foo">Foo</a>
+ */
 @Component({
-  selector: 'header-link',
-  template: `
+    selector: 'header-link',
+    template: `
     <a aria-label="Link to this heading" class="docs-markdown-a"
       [attr.aria-describedby]="example" [href]="_getFragmentUrl()">
       <mat-icon>link</mat-icon>
     </a>
-  `
+  `,
+    standalone: true,
+    imports: [MatIconModule]
 })
 export class HeaderLink {
 

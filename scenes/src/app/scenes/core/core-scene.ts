@@ -2,20 +2,19 @@ import {Component, NgModule, ViewEncapsulation} from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
 
 @Component({
-  encapsulation: ViewEncapsulation.None,
-  selector: 'app-core-scene',
-  templateUrl: './core-scene.html',
-  styleUrls: ['./core-scene.scss']
+    encapsulation: ViewEncapsulation.None,
+    selector: 'app-core-scene',
+    templateUrl: './core-scene.html',
+    styleUrls: ['./core-scene.scss'],
+    standalone: true,
+    imports: [MatIconModule]
 })
 export class CoreScene {
 }
 
 @NgModule({
-  imports: [
-    MatIconModule
-  ],
-  exports: [CoreScene],
-  declarations: [CoreScene]
+    imports: [MatIconModule, CoreScene],
+    exports: [CoreScene]
 })
 export class ChipsSceneModule {}
 

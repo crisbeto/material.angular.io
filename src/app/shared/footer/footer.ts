@@ -2,9 +2,10 @@ import {Component, NgModule} from '@angular/core';
 import {VERSION} from '@angular/material/core';
 
 @Component({
-  selector: 'app-footer',
-  templateUrl: './footer.html',
-  styleUrls: ['./footer.scss']
+    selector: 'app-footer',
+    templateUrl: './footer.html',
+    styleUrls: ['./footer.scss'],
+    standalone: true
 })
 export class Footer {
   isNextVersion = location.hostname.startsWith('next.material.angular.io');
@@ -14,7 +15,7 @@ export class Footer {
 
 
 @NgModule({
-  exports: [Footer],
-  declarations: [Footer],
+    exports: [Footer],
+    imports: [Footer]
 })
 export class FooterModule {}

@@ -4,8 +4,7 @@ import {TableOfContents} from './table-of-contents';
 import {RouterModule} from '@angular/router';
 
 @NgModule({
-  imports: [CommonModule, RouterModule],
-  declarations: [TableOfContents],
-  exports: [TableOfContents]
+    imports: [CommonModule, RouterModule, TableOfContents],
+    exports: [TableOfContents]
 })
 export class TableOfContentsModule { }

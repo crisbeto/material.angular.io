@@ -10,8 +10,8 @@ describe('ComponentSidenav', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ComponentSidenavModule, DocsAppTestingModule],
-    }).compileComponents();
+    imports: [ComponentSidenavModule, DocsAppTestingModule]
+}).compileComponents();
   }));
 
   beforeEach(() => {

@@ -4,8 +4,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {CookiePopup} from './cookie-popup';
 
 @NgModule({
-  imports: [CommonModule, MatButtonModule],
-  declarations: [CookiePopup],
-  exports: [CookiePopup]
+    imports: [CommonModule, MatButtonModule, CookiePopup],
+    exports: [CookiePopup]
 })
 export class CookiePopupModule {}

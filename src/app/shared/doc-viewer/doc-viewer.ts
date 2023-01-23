@@ -38,8 +38,9 @@ class DocFetcher {
 }
 
 @Component({
-  selector: 'doc-viewer',
-  template: 'Loading document...',
+    selector: 'doc-viewer',
+    template: 'Loading document...',
+    standalone: true
 })
 export class DocViewer implements OnDestroy {
   private _portalHosts: DomPortalOutlet[] = [];

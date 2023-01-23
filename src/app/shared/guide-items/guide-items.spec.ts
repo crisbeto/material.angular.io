@@ -7,8 +7,8 @@ describe('GuideItems', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      providers: [GuideItems]
-    }).compileComponents();
+    providers: [GuideItems]
+}).compileComponents();
   }));
 
   beforeEach(inject([GuideItems], (gi: GuideItems) => {

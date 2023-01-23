@@ -15,11 +15,11 @@ describe('TableOfContents', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [TableOfContentsModule, DocsAppTestingModule],
-      providers: [
-        {provide: ActivatedRoute, useValue: mockActivatedRoute},
-      ]
-    }).compileComponents();
+    imports: [TableOfContentsModule, DocsAppTestingModule],
+    providers: [
+        { provide: ActivatedRoute, useValue: mockActivatedRoute },
+    ]
+}).compileComponents();
   }));
 
   let fixture: ComponentFixture<TableOfContents>;

@@ -13,9 +13,8 @@ describe('HorizontalCarousel', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule(
       {
-        imports: [CarouselModule, DocsAppTestingModule],
-        declarations: [CarouselTestComponent],
-      }
+    imports: [CarouselModule, DocsAppTestingModule, CarouselTestComponent]
+}
     ).compileComponents();
   }));
 
@@ -54,19 +53,20 @@ describe('HorizontalCarousel', () => {
 });
 
 @Component({
-  selector: 'test-carousel',
-  template:
-      `
+    selector: 'test-carousel',
+    template: `
     <app-carousel>
       <div carousel-item class="docs-carousel-item-container"
            *ngFor="let i of [].constructor(numberOfItems) "></div>
     </app-carousel>`,
-  styles: [`
+    styles: [`
     .docs-carousel-item-container {
       display: flex;
       width: 250px;
     }
-  `]
+  `],
+    standalone: true,
+    imports: [CarouselModule, DocsAppTestingModule]
 })
 class CarouselTestComponent {
   numberOfItems = 6;

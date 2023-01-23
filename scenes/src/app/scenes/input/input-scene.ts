@@ -4,22 +4,21 @@ import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 
 @Component({
-  encapsulation: ViewEncapsulation.None,
-  selector: 'app-input-scene',
-  templateUrl: './input-scene.html',
-  styleUrls: ['./input-scene.scss']
+    encapsulation: ViewEncapsulation.None,
+    selector: 'app-input-scene',
+    templateUrl: './input-scene.html',
+    styleUrls: ['./input-scene.scss'],
+    standalone: true,
+    imports: [MatFormFieldModule, MatInputModule]
 })
 export class InputScene {
 }
 
 @NgModule({
-  imports: [
-    MatFormFieldModule,
-    FormsModule,
-    MatInputModule,
-  ],
-  exports: [InputScene],
-  declarations: [InputScene]
+    imports: [MatFormFieldModule,
+        FormsModule,
+        MatInputModule, InputScene],
+    exports: [InputScene]
 })
 export class InputSceneModule {}
 

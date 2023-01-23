@@ -15,17 +15,14 @@ import {CodeSnippet} from '../example-viewer/code-snippet';
 
 // ExampleViewer is included in the DocViewerModule because they have a circular dependency.
 @NgModule({
-  imports: [
-    CommonModule,
-    MatButtonModule,
-    MatIconModule,
-    MatTooltipModule,
-    MatSnackBarModule,
-    MatTabsModule,
-    PortalModule,
-    StackBlitzButtonModule
-  ],
-  declarations: [DocViewer, ExampleViewer, HeaderLink, CodeSnippet],
-  exports: [DocViewer, ExampleViewer, HeaderLink]
+    imports: [CommonModule,
+        MatButtonModule,
+        MatIconModule,
+        MatTooltipModule,
+        MatSnackBarModule,
+        MatTabsModule,
+        PortalModule,
+        StackBlitzButtonModule, DocViewer, ExampleViewer, HeaderLink, CodeSnippet],
+    exports: [DocViewer, ExampleViewer, HeaderLink]
 })
 export class DocViewerModule { }

@@ -25,11 +25,11 @@ describe('ComponentViewer', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ComponentViewerModule, DocsAppTestingModule, TestExampleModule],
-      providers: [
-        {provide: ActivatedRoute, useValue: mockActivatedRoute},
-      ]
-    }).compileComponents();
+    imports: [ComponentViewerModule, DocsAppTestingModule, TestExampleModule],
+    providers: [
+        { provide: ActivatedRoute, useValue: mockActivatedRoute },
+    ]
+}).compileComponents();
   }));
 
   beforeEach(() => {

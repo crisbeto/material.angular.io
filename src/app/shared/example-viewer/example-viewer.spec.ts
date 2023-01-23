@@ -31,8 +31,8 @@ describe('ExampleViewer', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [DocViewerModule, DocsAppTestingModule, ReactiveFormsModule, TestExampleModule],
-    }).compileComponents();
+    imports: [DocViewerModule, DocsAppTestingModule, ReactiveFormsModule, TestExampleModule]
+}).compileComponents();
   }));
 
   beforeEach(inject([HttpTestingController], (h: HttpTestingController) => {

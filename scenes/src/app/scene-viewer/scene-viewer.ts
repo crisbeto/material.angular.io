@@ -14,10 +14,11 @@ import {ActivatedRoute} from '@angular/router';
 import {DomSanitizer, SafeStyle} from '@angular/platform-browser';
 
 @Component({
-  encapsulation: ViewEncapsulation.None,
-  selector: 'app-scene-viewer',
-  templateUrl: './scene-viewer.html',
-  styleUrls: ['./scene-viewer.scss'],
+    encapsulation: ViewEncapsulation.None,
+    selector: 'app-scene-viewer',
+    templateUrl: './scene-viewer.html',
+    styleUrls: ['./scene-viewer.scss'],
+    standalone: true
 })
 export class SceneViewer implements OnInit {
   @HostBinding('style.filter') filter: SafeStyle | undefined;
@@ -66,11 +67,8 @@ export class SceneViewer implements OnInit {
 }
 
 @NgModule({
-  imports: [
-    CommonModule,
-  ],
-  exports: [SceneViewer],
-  declarations: [SceneViewer]
+    imports: [CommonModule, SceneViewer],
+    exports: [SceneViewer]
 })
 export class SceneViewerModule {
 }

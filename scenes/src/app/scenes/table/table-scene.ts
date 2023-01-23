@@ -16,9 +16,11 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 
 @Component({
-  selector: 'app-table-scene',
-  templateUrl: './table-scene.html',
-  styleUrls: ['./table-scene.scss']
+    selector: 'app-table-scene',
+    templateUrl: './table-scene.html',
+    styleUrls: ['./table-scene.scss'],
+    standalone: true,
+    imports: [MatTableModule]
 })
 export class TableScene {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
@@ -26,11 +28,8 @@ export class TableScene {
 }
 
 @NgModule({
-  imports: [
-    MatTableModule,
-  ],
-  exports: [TableScene],
-  declarations: [TableScene]
+    imports: [MatTableModule, TableScene],
+    exports: [TableScene]
 })
 export class TableSceneModule {}
 

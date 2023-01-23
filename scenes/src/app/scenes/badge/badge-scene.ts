@@ -3,21 +3,20 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatBadgeModule} from '@angular/material/badge';
 
 @Component({
-  encapsulation: ViewEncapsulation.None,
-  selector: 'app-badge-scene',
-  templateUrl: './badge-scene.html',
-  styleUrls: ['./badge-scene.scss']
+    encapsulation: ViewEncapsulation.None,
+    selector: 'app-badge-scene',
+    templateUrl: './badge-scene.html',
+    styleUrls: ['./badge-scene.scss'],
+    standalone: true,
+    imports: [MatIconModule, MatBadgeModule]
 })
 export class BadgeScene {
 }
 
 @NgModule({
-  imports: [
-    MatIconModule,
-    MatBadgeModule
-  ],
-  exports: [BadgeScene],
-  declarations: [BadgeScene]
+    imports: [MatIconModule,
+        MatBadgeModule, BadgeScene],
+    exports: [BadgeScene]
 })
 export class BadgeSceneModule {}
 

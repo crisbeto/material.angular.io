@@ -1,6 +1,6 @@
 import {Component, NgModule} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {CommonModule} from '@angular/common';
+import { CommonModule, NgForOf, AsyncPipe } from '@angular/common';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
@@ -16,9 +16,11 @@ interface VersionInfo {
 }
 
 @Component({
-  selector: 'version-picker',
-  templateUrl: './version-picker.html',
-  styleUrls: ['./version-picker.scss']
+    selector: 'version-picker',
+    templateUrl: './version-picker.html',
+    styleUrls: ['./version-picker.scss'],
+    standalone: true,
+    imports: [MatButtonModule, MatTooltipModule, MatMenuModule, MatIconModule, NgForOf, AsyncPipe]
 })
 export class VersionPicker {
   /** The currently running version of Material. */
@@ -40,8 +42,7 @@ export class VersionPicker {
 }
 
 @NgModule({
-  imports: [MatButtonModule, MatIconModule, MatMenuModule, MatTooltipModule, CommonModule],
-  exports: [VersionPicker],
-  declarations: [VersionPicker],
+    imports: [MatButtonModule, MatIconModule, MatMenuModule, MatTooltipModule, CommonModule, VersionPicker],
+    exports: [VersionPicker]
 })
 export class VersionPickerModule {}
