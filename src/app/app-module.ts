@@ -9,6 +9,7 @@ import {MATERIAL_DOCS_ROUTES} from './routes';
 import {NavBarModule} from './shared/navbar';
 
 import {AnalyticsErrorReportHandler} from './shared/analytics/error-report-handler';
+import {CookiePopup} from './shared/cookie-popup/cookie-popup';
 
 const prefersReducedMotion =
   typeof matchMedia === 'function' ? matchMedia('(prefers-reduced-motion)').matches : false;
@@ -21,7 +22,8 @@ const prefersReducedMotion =
         scrollPositionRestoration: 'enabled',
         anchorScrolling: 'enabled'
     }),
-    NavBarModule
+    NavBarModule,
+    CookiePopup,
 ],
   declarations: [MaterialDocsApp],
   providers: [
