@@ -5,6 +5,7 @@ import { CommonModule, NgIf, AsyncPipe, NgForOf } from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {
   Component,
+  forwardRef,
   Input,
   NgModule,
   NgZone,
@@ -70,7 +71,7 @@ const SMALL_WIDTH_BREAKPOINT = 959;
     imports: [
       MatSidenavModule,
       NgIf,
-      ComponentNav,
+      forwardRef(() => ComponentNav),
       ComponentPageHeader,
       RouterOutlet,
       Footer,

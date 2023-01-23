@@ -312,6 +312,9 @@
     }
   },
   "cli": {
-    "analytics": "cf155f04-1636-4df9-9ce2-870ba25ad38d"
+    "analytics": "cf155f04-1636-4df9-9ce2-870ba25ad38d",
+    "cache": {
+      "enabled": false
+    }
   }
 }
