@@ -14,9 +14,4 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 export class SlideToggleScene {
 }
 
-@NgModule({
-    imports: [MatIconModule,
-        MatSlideToggleModule, SlideToggleScene],
-    exports: [SlideToggleScene]
-})
-export class SlideToggleSceneModule {}
+

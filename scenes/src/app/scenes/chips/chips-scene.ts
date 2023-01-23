@@ -12,9 +12,5 @@ import {MatChipsModule} from '@angular/material/chips';
 export class ChipsScene {
 }
 
-@NgModule({
-    imports: [MatChipsModule, ChipsScene],
-    exports: [ChipsScene]
-})
-export class ChipsSceneModule {}
+
 

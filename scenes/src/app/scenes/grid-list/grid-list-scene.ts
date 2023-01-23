@@ -19,10 +19,5 @@ export class GridListScene {
   ];
 }
 
-@NgModule({
-    imports: [MatGridListModule,
-        CommonModule, GridListScene],
-    exports: [GridListScene]
-})
-export class GridListSceneModule {}
+
 

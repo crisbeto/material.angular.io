@@ -13,10 +13,5 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 export class FormFieldScene {
 }
 
-@NgModule({
-    imports: [MatIconModule,
-        MatInputModule, FormFieldScene],
-    exports: [FormFieldScene]
-})
-export class FormFieldSceneModule {}
+
 

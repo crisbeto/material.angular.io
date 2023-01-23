@@ -41,8 +41,4 @@ export class VersionPicker {
   }
 }
 
-@NgModule({
-    imports: [MatButtonModule, MatIconModule, MatMenuModule, MatTooltipModule, CommonModule, VersionPicker],
-    exports: [VersionPicker]
-})
-export class VersionPickerModule {}
+

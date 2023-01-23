@@ -19,8 +19,4 @@ export class TooltipScene implements AfterViewInit {
   }
 }
 
-@NgModule({
-    imports: [MatButtonModule, MatTooltipModule, MatIconModule, TooltipScene],
-    exports: [TooltipScene]
-})
-export class TooptipSceneModule {}
+

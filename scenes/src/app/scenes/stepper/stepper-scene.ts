@@ -15,12 +15,5 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 export class StepperScene {
 }
 
-@NgModule({
-    imports: [MatButtonModule,
-        MatStepperModule,
-        MatInputModule, StepperScene],
-    exports: [StepperScene]
-})
-export class StepperSceneModule {
-}
+
 

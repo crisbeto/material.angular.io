@@ -24,26 +24,22 @@ import {
 import {combineLatest, Observable, Subscription} from 'rxjs';
 import {map} from 'rxjs/operators';
 
-import {DocViewerModule} from '../../shared/doc-viewer/doc-viewer-module';
+
 import {
   DocumentationItems
 } from '../../shared/documentation-items/documentation-items';
-import { FooterModule, Footer } from '../../shared/footer/footer';
-import {
-  NavigationFocusModule
-} from '../../shared/navigation-focus/navigation-focus';
+import { Footer } from '../../shared/footer/footer';
+
 import {
   NavigationFocusService
 } from '../../shared/navigation-focus/navigation-focus.service';
 import {StackBlitzButtonModule} from '../../shared/stack-blitz';
-import {SvgViewerModule} from '../../shared/svg-viewer/svg-viewer';
+
 import {
   ComponentCategoryList,
   ComponentCategoryListModule
 } from '../component-category-list/component-category-list';
-import {
-  ComponentHeaderModule, ComponentPageHeader
-} from '../component-page-header/component-page-header';
+import { ComponentPageHeader } from '../component-page-header/component-page-header';
 import {
   ComponentApi,
   ComponentExamples,
@@ -169,22 +165,18 @@ const routes: Routes = [{
 
 @NgModule({
     imports: [MatSidenavModule,
-        MatListModule,
-        RouterModule,
-        CommonModule,
-        ComponentCategoryListModule,
-        ComponentHeaderModule,
-        ComponentViewerModule,
-        DocViewerModule,
-        FooterModule,
-        FormsModule,
-        HttpClientModule,
-        CdkAccordionModule,
-        MatIconModule,
-        StackBlitzButtonModule,
-        SvgViewerModule,
-        RouterModule.forChild(routes),
-        NavigationFocusModule, ComponentSidenav, ComponentNav],
+    MatListModule,
+    RouterModule,
+    CommonModule,
+    ComponentCategoryListModule,
+    ComponentViewerModule,
+    FormsModule,
+    HttpClientModule,
+    CdkAccordionModule,
+    MatIconModule,
+    StackBlitzButtonModule,
+    RouterModule.forChild(routes),
+    ComponentSidenav, ComponentNav],
     exports: [ComponentSidenav],
     providers: [DocumentationItems]
 })

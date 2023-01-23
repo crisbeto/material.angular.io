@@ -12,9 +12,5 @@ import {MatIconModule} from '@angular/material/icon';
 export class CoreScene {
 }
 
-@NgModule({
-    imports: [MatIconModule, CoreScene],
-    exports: [CoreScene]
-})
-export class ChipsSceneModule {}
+
 

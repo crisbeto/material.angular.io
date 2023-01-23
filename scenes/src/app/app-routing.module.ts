@@ -95,9 +95,4 @@ const routes: SceneViewerRoute[] = [
 ].sort((a, b) => (a.path > b.path) ? 1 : ((b.path > a.path) ? -1 : 0))
   .map((route: SceneViewerRoute) => ({...route, data: {...route.data, hueRotate: 15 * hue++}}));
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule {
-}
+

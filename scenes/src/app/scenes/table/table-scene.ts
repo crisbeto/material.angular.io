@@ -27,9 +27,5 @@ export class TableScene {
   dataSource = ELEMENT_DATA;
 }
 
-@NgModule({
-    imports: [MatTableModule, TableScene],
-    exports: [TableScene]
-})
-export class TableSceneModule {}
+
 

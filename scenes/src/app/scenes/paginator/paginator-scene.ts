@@ -13,8 +13,4 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 export class PaginatorScene {
 }
 
-@NgModule({
-    imports: [MatPaginatorModule, PaginatorScene],
-    exports: [PaginatorScene]
-})
-export class PaginatorSceneModule {}
+

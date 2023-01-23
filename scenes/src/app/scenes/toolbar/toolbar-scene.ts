@@ -13,10 +13,5 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 export class ToolbarScene {
 }
 
-@NgModule({
-    imports: [MatIconModule,
-        MatToolbarModule, ToolbarScene],
-    exports: [ToolbarScene]
-})
-export class ToolbarSceneModule {}
+
 

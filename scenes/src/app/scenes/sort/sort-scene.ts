@@ -26,11 +26,5 @@ export class SortScene {
   ];
 }
 
-@NgModule({
-    imports: [CommonModule,
-        MatSortModule, SortScene],
-    exports: [SortScene]
-})
-export class SortSceneModule {
-}
+
 

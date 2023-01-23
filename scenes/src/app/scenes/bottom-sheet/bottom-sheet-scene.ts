@@ -29,12 +29,5 @@ export class BottomSheetScene implements AfterViewInit {
 })
 export class SampleBottomSheet {}
 
-@NgModule({
-    imports: [MatBottomSheetModule,
-        MatIconModule,
-        MatListModule, BottomSheetScene, SampleBottomSheet],
-    exports: [BottomSheetScene, SampleBottomSheet]
-})
-export class BottomSheetSceneModule {
-}
+
 

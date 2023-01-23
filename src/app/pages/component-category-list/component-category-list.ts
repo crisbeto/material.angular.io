@@ -8,8 +8,8 @@ import {
   DocumentationItems,
   SECTIONS
 } from '../../shared/documentation-items/documentation-items';
-import { NavigationFocusModule, NavigationFocus } from '../../shared/navigation-focus/navigation-focus';
-import {SvgViewerModule} from '../../shared/svg-viewer/svg-viewer';
+import { NavigationFocus } from '../../shared/navigation-focus/navigation-focus';
+
 import {ComponentPageTitle} from '../page-title/page-title';
 
 @Component({
@@ -51,7 +51,7 @@ export class ComponentCategoryList implements OnInit, OnDestroy {
 }
 
 @NgModule({
-    imports: [CommonModule, SvgViewerModule, MatCardModule, RouterModule, NavigationFocusModule, ComponentCategoryList],
+    imports: [CommonModule, MatCardModule, RouterModule, ComponentCategoryList],
     exports: [ComponentCategoryList],
     providers: [DocumentationItems]
 })

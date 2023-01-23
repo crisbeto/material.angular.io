@@ -32,15 +32,5 @@ export class AutocompleteScene implements AfterViewInit {
   }
 }
 
-@NgModule({
-    imports: [MatFormFieldModule,
-        MatInputModule,
-        ReactiveFormsModule,
-        MatAutocompleteModule,
-        CommonModule,
-        FormsModule,
-        NoopAnimationsModule, AutocompleteScene],
-    exports: [AutocompleteScene]
-})
-export class AutocompleteSceneModule {}
+
 

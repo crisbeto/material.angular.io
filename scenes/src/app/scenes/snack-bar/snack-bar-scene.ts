@@ -16,8 +16,4 @@ export class SnackBarScene {
   }
 }
 
-@NgModule({
-    imports: [NoopAnimationsModule, MatSnackBarModule, SnackBarScene],
-    exports: [SnackBarScene]
-})
-export class SnackBarSceneModule { }
+

@@ -14,11 +14,5 @@ import {MatInputModule} from '@angular/material/input';
 export class InputScene {
 }
 
-@NgModule({
-    imports: [MatFormFieldModule,
-        FormsModule,
-        MatInputModule, InputScene],
-    exports: [InputScene]
-})
-export class InputSceneModule {}
+
 

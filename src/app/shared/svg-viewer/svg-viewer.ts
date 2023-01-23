@@ -41,8 +41,4 @@ function getAbsolutePathFromSrc(src: string) {
   return src.slice(src.indexOf('assets/') - 1);
 }
 
-@NgModule({
-    exports: [SvgViewer],
-    imports: [SvgViewer]
-})
-export class SvgViewerModule { }
+

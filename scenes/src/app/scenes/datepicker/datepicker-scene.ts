@@ -13,10 +13,5 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 export class DatepickerScene {
 }
 
-@NgModule({
-    imports: [MatDatepickerModule, DatepickerScene],
-    exports: [DatepickerScene]
-})
-export class DatepickerSceneModule {
-}
+
 

@@ -13,9 +13,5 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 export class ProgressBarScene {
 }
 
-@NgModule({
-    imports: [MatProgressBarModule, ProgressBarScene],
-    exports: [ProgressBarScene]
-})
-export class ProgressBarSceneModule {}
+
 

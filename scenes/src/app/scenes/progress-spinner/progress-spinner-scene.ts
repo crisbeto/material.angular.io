@@ -12,9 +12,5 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 })
 export class ProgressSpinnerScene {}
 
-@NgModule({
-    imports: [MatProgressSpinnerModule, ProgressSpinnerScene],
-    exports: [ProgressSpinnerScene]
-})
-export class ProgressSpinnerSceneModule {}
+
 

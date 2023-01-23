@@ -16,12 +16,12 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { ActivatedRoute, Params, Router, RouterModule, RouterLinkActive, RouterLink, RouterOutlet } from '@angular/router';
 import {combineLatest, Observable, ReplaySubject, Subject} from 'rxjs';
 import {map, skip, takeUntil} from 'rxjs/operators';
-import {DocViewerModule} from '../../shared/doc-viewer/doc-viewer-module';
+
 import {DocItem, DocumentationItems} from '../../shared/documentation-items/documentation-items';
 import {TableOfContents} from '../../shared/table-of-contents/table-of-contents';
-import {TableOfContentsModule} from '../../shared/table-of-contents/table-of-contents.module';
+
 import {ComponentPageTitle} from '../page-title/page-title';
-import { NavigationFocusModule, NavigationFocus } from '../../shared/navigation-focus/navigation-focus';
+import { NavigationFocus } from '../../shared/navigation-focus/navigation-focus';
 import {DocViewer} from '../../shared/doc-viewer/doc-viewer';
 import { ExampleViewer } from "../../shared/example-viewer/example-viewer";
 
@@ -202,11 +202,9 @@ export class ComponentExamples extends ComponentBaseView {
 
 @NgModule({
     imports: [MatTabsModule,
-        RouterModule,
-        DocViewerModule,
-        CommonModule,
-        TableOfContentsModule,
-        NavigationFocusModule, ComponentViewer, ComponentOverview, ComponentApi, ComponentExamples],
+    RouterModule,
+    CommonModule,
+    ComponentViewer, ComponentOverview, ComponentApi, ComponentExamples],
     exports: [ComponentViewer],
     providers: [DocumentationItems]
 })

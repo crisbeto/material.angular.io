@@ -11,10 +11,5 @@ import {MatIconModule} from '@angular/material/icon';
 })
 export class ButtonToggleScene {}
 
-@NgModule({
-    imports: [MatButtonToggleModule,
-        MatIconModule, ButtonToggleScene],
-    exports: [ButtonToggleScene]
-})
-export class InputSceneModule {}
+
 

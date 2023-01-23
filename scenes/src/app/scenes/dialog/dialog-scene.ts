@@ -20,12 +20,7 @@ export class DialogScene {
   }
 }
 
-@NgModule({
-    imports: [MatButtonModule, DialogScene],
-    exports: [DialogScene]
-})
-export class DialogSceneModule {
-}
+
 
 @Component({
     selector: 'app-dialog-scene-example-dialog',
@@ -40,10 +35,4 @@ export class DialogSceneModule {
 })
 export class DialogSceneExampleDialog {}
 
-@NgModule({
-    imports: [MatDialogModule,
-        MatButtonModule, DialogSceneExampleDialog],
-    exports: [DialogSceneExampleDialog]
-})
-export class DialogSceneExampleDialogModule {
-}
+

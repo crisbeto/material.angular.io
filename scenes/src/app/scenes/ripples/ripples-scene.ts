@@ -29,11 +29,5 @@ export class RipplesScene implements AfterViewInit {
   }
 }
 
-@NgModule({
-    imports: [MatButtonModule,
-        MatRippleModule, RipplesScene],
-    exports: [RipplesScene]
-})
-export class InputSceneModule {
-}
+
 

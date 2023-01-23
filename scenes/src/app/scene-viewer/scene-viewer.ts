@@ -66,9 +66,4 @@ export class SceneViewer implements OnInit {
   }
 }
 
-@NgModule({
-    imports: [CommonModule, SceneViewer],
-    exports: [SceneViewer]
-})
-export class SceneViewerModule {
-}
+

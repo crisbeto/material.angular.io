@@ -11,10 +11,5 @@ import {MatIconModule} from '@angular/material/icon';
 })
 export class PlaceHolderScene {}
 
-@NgModule({
-    imports: [MatButtonToggleModule,
-        MatIconModule, PlaceHolderScene],
-    exports: [PlaceHolderScene]
-})
-export class InputSceneModule {}
+
 

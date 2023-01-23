@@ -20,10 +20,5 @@ export class SliderScene implements AfterViewInit {
   }
 }
 
-@NgModule({
-    imports: [MatIconModule,
-        MatSliderModule, SliderScene],
-    exports: [SliderScene]
-})
-export class SliderSceneModule {}
+
 

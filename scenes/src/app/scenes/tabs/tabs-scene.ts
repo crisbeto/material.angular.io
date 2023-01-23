@@ -11,10 +11,5 @@ import {MatTabsModule} from '@angular/material/tabs';
 export class TabsScene {
 }
 
-@NgModule({
-    imports: [MatTabsModule, TabsScene],
-    exports: [TabsScene]
-})
-export class TabsSceneModule {
-}
+
 

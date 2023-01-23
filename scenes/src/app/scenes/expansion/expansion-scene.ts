@@ -13,10 +13,5 @@ import {MatIconModule} from '@angular/material/icon';
 export class ExpansionScene {
 }
 
-@NgModule({
-    imports: [MatExpansionModule,
-        MatIconModule, ExpansionScene],
-    exports: [ExpansionScene]
-})
-export class ExpansionSceneModule {}
+
 

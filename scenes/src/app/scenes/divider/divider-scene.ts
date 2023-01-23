@@ -14,10 +14,5 @@ import { MatDividerModule } from "@angular/material/divider";
 export class DividerScene {
 }
 
-@NgModule({
-    imports: [MatIconModule,
-        MatListModule, DividerScene],
-    exports: [DividerScene]
-})
-export class DividerSceneModule {}
+
 

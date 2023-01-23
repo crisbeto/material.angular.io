@@ -13,10 +13,5 @@ import {MatBadgeModule} from '@angular/material/badge';
 export class BadgeScene {
 }
 
-@NgModule({
-    imports: [MatIconModule,
-        MatBadgeModule, BadgeScene],
-    exports: [BadgeScene]
-})
-export class BadgeSceneModule {}
+
 

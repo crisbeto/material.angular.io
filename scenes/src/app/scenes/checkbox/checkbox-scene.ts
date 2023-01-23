@@ -12,10 +12,5 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 export class CheckboxScene {
 }
 
-@NgModule({
-    imports: [MatCheckboxModule, CheckboxScene],
-    exports: [CheckboxScene]
-})
-export class CheckboxSceneModule {
-}
+
 

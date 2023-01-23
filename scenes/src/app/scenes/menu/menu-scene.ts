@@ -19,12 +19,5 @@ export class MenuScene implements AfterViewInit {
   }
 }
 
-@NgModule({
-    imports: [MatButtonModule,
-        MatIconModule,
-        MatMenuModule, MenuScene],
-    exports: [MenuScene]
-})
-export class MenuSceneModule {
-}
+
 

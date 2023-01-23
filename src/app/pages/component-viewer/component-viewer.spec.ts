@@ -25,7 +25,7 @@ describe('ComponentViewer', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-    imports: [ComponentViewerModule, DocsAppTestingModule, TestExampleModule],
+    imports: [ComponentViewerModule, DocsAppTestingModule],
     providers: [
         { provide: ActivatedRoute, useValue: mockActivatedRoute },
     ]
@@ -51,12 +51,4 @@ describe('ComponentViewer', () => {
 
 // Create a version of ExampleModule for testing with only one component so that we odn't have
 // to compile all of the examples for these tests.
-@NgModule({
-  imports: [
-    MatButtonModule,
-    MatIconModule,
-    NoopAnimationsModule,
-    ButtonExamplesModule,
-  ],
-})
-class TestExampleModule { }
+

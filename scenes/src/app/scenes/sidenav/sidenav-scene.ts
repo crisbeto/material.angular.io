@@ -14,10 +14,4 @@ import {MatListModule} from '@angular/material/list';
 export class SidenavScene {
 }
 
-@NgModule({
-    imports: [MatIconModule,
-        MatSidenavModule,
-        MatListModule, SidenavScene],
-    exports: [SidenavScene]
-})
-export class SidenavSceneModule {}
+

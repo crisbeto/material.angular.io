@@ -13,11 +13,5 @@ import {MatIconModule} from '@angular/material/icon';
 export class ButtonScene {
 }
 
-@NgModule({
-    imports: [MatButtonModule,
-        MatIconModule, ButtonScene],
-    exports: [ButtonScene]
-})
-export class ButtonSceneModule {
-}
+
 

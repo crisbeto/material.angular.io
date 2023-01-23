@@ -70,8 +70,4 @@ export class TreeScene {
   hasChild = (_: number, node: FileFlatNode) => node.expandable;
 }
 
-@NgModule({
-    imports: [MatIconModule, MatTreeModule, MatButtonModule, TreeScene],
-    exports: [TreeScene]
-})
-export class TreeSceneModule {}
+

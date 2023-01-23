@@ -31,7 +31,7 @@ describe('ExampleViewer', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-    imports: [DocViewerModule, DocsAppTestingModule, ReactiveFormsModule, TestExampleModule]
+    imports: [DocViewerModule, DocsAppTestingModule, ReactiveFormsModule]
 }).compileComponents();
   }));
 
@@ -234,19 +234,7 @@ describe('ExampleViewer', () => {
 
 // Create a version of ExampleModule for testing with only one component so that we don't have
 // to compile all of the examples for these tests.
-@NgModule({
-  imports: [
-    MatInputModule,
-    MatAutocompleteModule,
-    MatSlideToggleModule,
-    FormsModule,
-    CommonModule,
-    ReactiveFormsModule,
-    NoopAnimationsModule,
-    AutocompleteExamplesModule,
-  ],
-})
-class TestExampleModule {}
+
 
 const FAKE_DOCS: {[key: string]: string} = {
   [`${exampleBasePath}/autocomplete-overview-example-html.html`]: '<div>my docs page</div>',

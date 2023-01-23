@@ -19,10 +19,5 @@ export class SelectScene implements AfterViewInit {
   }
 }
 
-@NgModule({
-    imports: [MatFormFieldModule,
-        MatSelectModule, SelectScene],
-    exports: [SelectScene]
-})
-export class SelectSceneModule {}
+
 

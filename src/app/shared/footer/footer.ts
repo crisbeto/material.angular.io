@@ -14,8 +14,4 @@ export class Footer {
 }
 
 
-@NgModule({
-    exports: [Footer],
-    imports: [Footer]
-})
-export class FooterModule {}
+

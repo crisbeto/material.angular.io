@@ -12,10 +12,5 @@ import {MatRadioModule} from '@angular/material/radio';
 export class RadioScene {
 }
 
-@NgModule({
-    imports: [MatRadioModule, RadioScene],
-    exports: [RadioScene]
-})
-export class RadioSceneModule {
-}
+
 
