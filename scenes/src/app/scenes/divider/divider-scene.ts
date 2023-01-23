@@ -1,7 +1,7 @@
 import {Component, NgModule, ViewEncapsulation} from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
-import { MatDividerModule } from "@angular/material/divider";
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
     encapsulation: ViewEncapsulation.None,

@@ -16,12 +16,12 @@ import {Clipboard} from '@angular/cdk/clipboard';
 import {EXAMPLE_COMPONENTS, LiveExample} from '@angular/components-examples';
 import {CodeSnippet} from './code-snippet';
 import {normalizePath} from '../normalize-path';
-import { MatTabsModule } from "@angular/material/tabs";
-import { StackBlitzButton } from "../stack-blitz/stack-blitz-button";
-import { MatIconModule } from "@angular/material/icon";
-import { MatTooltipModule } from "@angular/material/tooltip";
-import { MatButtonModule } from "@angular/material/button";
-import { NgIf, NgForOf, NgComponentOutlet } from "@angular/common";
+import { MatTabsModule } from '@angular/material/tabs';
+import { StackBlitzButton } from '../stack-blitz/stack-blitz-button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatButtonModule } from '@angular/material/button';
+import { NgIf, NgForOf, NgComponentOutlet } from '@angular/common';
 
 export type Views = 'snippet' | 'full' | 'demo';
 

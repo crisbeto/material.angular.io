@@ -11,7 +11,7 @@ import {MatInput, MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { CommonModule, NgForOf } from '@angular/common';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import { MatOptionModule } from "@angular/material/core";
+import { MatOptionModule } from '@angular/material/core';
 
 
 @Component({

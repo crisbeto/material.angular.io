@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import { MatButtonModule } from "@angular/material/button";
-import { NgIf } from "@angular/common";
+import { MatButtonModule } from '@angular/material/button';
+import { NgIf } from '@angular/common';
 
 const STORAGE_KEY = 'docs-cookies';
 

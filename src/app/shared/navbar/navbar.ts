@@ -11,8 +11,8 @@ import {StyleManager} from '../style-manager';
 import {HttpClientModule} from '@angular/common/http';
 import {Subscription} from 'rxjs';
 import {NavigationFocusService} from '../navigation-focus/navigation-focus.service';
-import { ThemePicker } from "../theme-picker/theme-picker";
-import { VersionPicker } from "../version-picker/version-picker";
+import { ThemePicker } from '../theme-picker/theme-picker';
+import { VersionPicker } from '../version-picker/version-picker';
 
 const SECTIONS_KEYS = Object.keys(SECTIONS);
 

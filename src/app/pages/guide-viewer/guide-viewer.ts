@@ -7,8 +7,8 @@ import { Footer } from '../../shared/footer/footer';
 import {ComponentPageTitle} from '../page-title/page-title';
 import {ReactiveFormsModule} from '@angular/forms';
 import { NavigationFocus } from '../../shared/navigation-focus/navigation-focus';
-import { TableOfContents } from "../../shared/table-of-contents/table-of-contents";
-import { DocViewer } from "../../shared/doc-viewer/doc-viewer";
+import { TableOfContents } from '../../shared/table-of-contents/table-of-contents';
+import { DocViewer } from '../../shared/doc-viewer/doc-viewer';
 
 @Component({
     selector: 'guide-viewer',

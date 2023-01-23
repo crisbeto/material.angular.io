@@ -23,7 +23,7 @@ import {TableOfContents} from '../../shared/table-of-contents/table-of-contents'
 import {ComponentPageTitle} from '../page-title/page-title';
 import { NavigationFocus } from '../../shared/navigation-focus/navigation-focus';
 import {DocViewer} from '../../shared/doc-viewer/doc-viewer';
-import { ExampleViewer } from "../../shared/example-viewer/example-viewer";
+import { ExampleViewer } from '../../shared/example-viewer/example-viewer';
 
 
 @Component({

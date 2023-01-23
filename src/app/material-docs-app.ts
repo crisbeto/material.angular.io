@@ -4,9 +4,9 @@ import {AnalyticsService} from './shared/analytics/analytics';
 import {NavigationFocusService} from './shared/navigation-focus/navigation-focus.service';
 import {Subscription} from 'rxjs';
 import {map, pairwise, startWith} from 'rxjs/operators';
-import { RouterOutlet } from "@angular/router";
-import { NavBar } from "./shared/navbar/navbar";
-import { CookiePopup } from "./shared/cookie-popup/cookie-popup";
+import { RouterOutlet } from '@angular/router';
+import { NavBar } from './shared/navbar/navbar';
+import { CookiePopup } from './shared/cookie-popup/cookie-popup';
 
 @Component({
     selector: 'material-docs-app',

@@ -13,7 +13,7 @@ import {GuideItems} from '../../shared/guide-items/guide-items';
 import { CommonModule, NgForOf } from '@angular/common';
 
 import {Support} from '../../shared/support/support';
-import { Carousel, CarouselItem } from "../../shared/carousel/carousel";
+import { Carousel, CarouselItem } from '../../shared/carousel/carousel';
 
 const TOP_COMPONENTS = ['datepicker', 'input', 'slide-toggle', 'slider', 'button'];
 
