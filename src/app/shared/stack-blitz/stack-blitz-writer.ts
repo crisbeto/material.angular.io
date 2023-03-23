@@ -5,10 +5,7 @@ import {VERSION as MAT_VERSION} from '@angular/material/core';
 import {Observable} from 'rxjs';
 import {shareReplay, take} from 'rxjs/operators';
 
-import stackblitz from '@stackblitz/sdk';
-
 import {normalizedMaterialVersion} from '../normalized-version';
-import {normalizePath} from '../normalize-path';
 
 const COPYRIGHT = `Copyright ${new Date().getFullYear()} Google LLC. All Rights Reserved.
     Use of this source code is governed by an MIT-style license that
@@ -22,6 +19,12 @@ const COPYRIGHT = `Copyright ${new Date().getFullYear()} Google LLC. All Rights 
 const DOCS_CONTENT_PATH = '/docs-content/examples-source';
 
 const TEMPLATE_PATH = '/assets/stack-blitz/';
+
+const PROJECT_TAGS = ['angular', 'material', 'cdk', 'web', 'example'];
+const STACKBLITZ_URL = 'https://run.stackblitz.com/api/angular/v1';
+
+const angularVersion = getVersionString(NG_VERSION);
+const componentsVersion = getVersionString(MAT_VERSION);
 
 /**
  * List of boilerplate files for an example StackBlitz.
@@ -52,14 +55,18 @@ export const TEMPLATE_FILES = [
   'src/environments/environment.ts',
 ];
 
-const PROJECT_TAGS = ['angular', 'material', 'cdk', 'web', 'example'];
-const PROJECT_TEMPLATE = 'node';
-const STACKBLITZ_URL = 'https://run.stackblitz.com/api/angular/v1';
-
-const angularVersion = getVersionString(NG_VERSION);
-const componentsVersion = getVersionString(MAT_VERSION);
-
 /* eslint-disable @typescript-eslint/naming-convention */
+const FILE_LOAD_PATHS = {
+  demo: {
+    'src/main.ts': 'src/main-demo.ts',
+    'src/polyfills.ts': 'src/polyfills-demo.ts',
+  },
+  tests: {
+    'src/main.ts': 'src/main-tests.ts',
+    'src/polyfills.ts': 'src/polyfills-tests.ts',
+  }
+};
+
 const dependencies = {
   '@angular/cdk': componentsVersion,
   '@angular/animations': angularVersion,
@@ -76,6 +83,8 @@ const dependencies = {
   'rxjs': '^6.6.7',
   'tslib': '^2.2.0',
   'zone.js': '^0.12.0',
+  '@types/jasmine': '^3.7.7',
+  'jasmine-core': '^3.7.1',
 };
 
 const testDependencies = {
@@ -86,12 +95,6 @@ const testDependencies = {
 /* eslint-enable @typescript-eslint/naming-convention */
 
 /**
- * Type describing an in-memory file dictionary, representing a
- * directory and its contents.
- */
-type FileDictionary = {[path: string]: string};
-
-/**
  * StackBlitz writer, write example files to StackBlitz.
  */
 @Injectable({providedIn: 'root'})
@@ -100,32 +103,10 @@ export class StackBlitzWriter {
 
   constructor(private _http: HttpClient, private _ngZone: NgZone) {}
 
-  /** Opens a StackBlitz for the specified example. */
-  createStackBlitzForExample(
-    exampleId: string,
-    data: ExampleData,
-    isTest: boolean
-  ): Promise<() => void> {
-    // Run outside the zone since the creation doesn't interact with Angular
-    // and the file requests can cause excessive change detections.
-    return this._ngZone.runOutsideAngular(async () => {
-      const files = await this._buildInMemoryFileDictionary(data, exampleId, isTest);
-      const exampleMainFile = `src/app/${data.indexFilename}`;
-
-      return () => {
-        this._openStackBlitz({
-          files,
-          title: `Angular Components - ${data.description}`,
-          description: `${data.description}\n\nAuto-generated from: https://material.angular.io`,
-          openFile: exampleMainFile,
-        });
-      };
-    });
-  }
-
   async constructStackBlitzForm(exampleId: string, data: ExampleData,
                                 isTest: boolean): Promise<HTMLFormElement> {
     const liveExample = EXAMPLE_COMPONENTS[exampleId];
+    const fileLoadPaths = FILE_LOAD_PATHS[isTest ? 'tests' : 'demo'] as Record<string, string>;
     const indexFile = `src%2Fapp%2F${data.indexFilename}`;
     const form = this._createFormElement(indexFile);
     const baseExamplePath =
@@ -144,17 +125,23 @@ export class StackBlitzWriter {
       const fileReadPromises: Promise<void>[] = [];
 
       // Read all of the template files.
-      TEMPLATE_FILES.forEach(file => fileReadPromises.push(
-        this._loadAndAppendFile(form, data, file, TEMPLATE_PATH, isTest)));
+      TEMPLATE_FILES.forEach(file => {
+        const url = TEMPLATE_PATH + (fileLoadPaths[file] || file);
+        fileReadPromises.push(this._loadAndAppendFile(form, data, file, url, isTest));
+      });
 
       // Read the example-specific files.
-      data.exampleFiles.forEach(file => fileReadPromises.push(this._loadAndAppendFile(form, data,
-        file, baseExamplePath, isTest)));
+      data.exampleFiles.forEach(file => {
+        const appPath = 'src/app/' + file;
+        const url = baseExamplePath + file;
+        fileReadPromises.push(this._loadAndAppendFile(form, data, appPath, url, isTest));
+      });
 
       // TODO(josephperrott): Prevent including assets to be manually checked.
       if (data.selectorName === 'icon-svg-example') {
-        fileReadPromises.push(this._loadAndAppendFile(form, data,
-          'assets/img/examples/thumbup-icon.svg', '', isTest, false));
+        // TODO(crisbeto): check this
+        // fileReadPromises.push(this._loadAndAppendFile(form, data,
+        //   'assets/img/examples/thumbup-icon.svg', '', isTest));
       }
 
       return Promise.all(fileReadPromises);
@@ -182,8 +169,7 @@ export class StackBlitzWriter {
   }
 
   private _loadAndAppendFile(form: HTMLFormElement, data: ExampleData, filename: string,
-                            path: string, isTest: boolean, prependApp = true): Promise<void> {
-    const url = path + filename;
+                             url: string, isTest: boolean): Promise<void> {
     let stream = this._fileCache.get(url);
 
     if (!stream) {
@@ -193,111 +179,12 @@ export class StackBlitzWriter {
 
     // The `take(1)` is necessary, because the Promise from `toPromise` resolves on complete.
     return stream.pipe(take(1)).toPromise().then(
-      response => this._addFileToForm(form, data, response, filename, path, isTest, prependApp),
+      content => {
+        content = this._replaceExamplePlaceholders(data, filename, content, isTest);
+        this._appendFormInput(form, `files[${filename}]`, this._appendCopyright(filename, content));
+      },
       error => console.log(error)
     );
-  }
-
-  _addFileToForm(form: HTMLFormElement,
-                 data: ExampleData,
-                 content: string,
-                 filename: string,
-                 path: string,
-                 isTest: boolean,
-                 prependApp = true) {
-    // if (path === (isTest ? TEST_TEMPLATE_PATH : TEMPLATE_PATH)) {
-    if (path === TEMPLATE_PATH) {
-      content = this._replaceExamplePlaceholders(data, filename, content, isTest);
-    } else if (prependApp) {
-      filename = 'src/app/' + filename;
-    }
-    this._appendFormInput(form, `files[${filename}]`, this._appendCopyright(filename, content));
-  }
-
-  /** Opens a new WebContainer-based StackBlitz for the given files. */
-  private _openStackBlitz({
-    title,
-    description,
-    openFile,
-    files,
-  }: {
-    title: string;
-    description: string;
-    openFile: string;
-    files: FileDictionary;
-  }): void {
-    stackblitz.openProject(
-      {
-        title,
-        files,
-        description,
-        template: PROJECT_TEMPLATE,
-        tags: PROJECT_TAGS,
-      },
-      {openFile}
-    );
-  }
-
-  /**
-   * Builds an in-memory file dictionary representing an CLI project serving
-   * the example. The dictionary can then be passed to StackBlitz as project files.
-   */
-  private async _buildInMemoryFileDictionary(
-    data: ExampleData,
-    exampleId: string,
-    isTest: boolean
-  ): Promise<FileDictionary> {
-    const result: FileDictionary = {};
-    const tasks: Promise<unknown>[] = [];
-    const liveExample = EXAMPLE_COMPONENTS[exampleId];
-    const exampleBaseContentPath =
-      `${DOCS_CONTENT_PATH}/${liveExample.module.importSpecifier}/${exampleId}/`;
-
-    for (const relativeFilePath of TEMPLATE_FILES) {
-      tasks.push(
-        this._loadFile(TEMPLATE_PATH + relativeFilePath)
-          // Replace example placeholders in the template files.
-          .then(content =>
-            this._replaceExamplePlaceholders(data, relativeFilePath, content, isTest)
-          )
-          .then(content => (result[relativeFilePath] = content))
-      );
-    }
-
-    for (const relativeFilePath of data.exampleFiles) {
-      // Note: Since we join with paths from the example data, we normalize
-      // the final target path. This is necessary because StackBlitz does
-      // not and paths like `./bla.ts` would result in a directory called `.`.
-      const targetPath = normalizePath(`src/app/${relativeFilePath}`);
-
-      tasks.push(
-        this._loadFile(exampleBaseContentPath + relativeFilePath)
-          // Insert a copyright footer for all example files inserted into the project.
-          .then(content => this._appendCopyright(relativeFilePath, content))
-          .then(content => (result[targetPath] = content))
-      );
-    }
-
-    // Wait for the file dictionary to be populated. All file requests are
-    // triggered concurrently to speed up the example StackBlitz generation.
-    await Promise.all(tasks);
-
-    return result;
-  }
-
-  /**
-   * Loads the specified file and returns a promise resolving to its contents.
-   */
-  private _loadFile(fileUrl: string): Promise<string> {
-    let stream = this._fileCache.get(fileUrl);
-
-    if (!stream) {
-      stream = this._http.get(fileUrl, {responseType: 'text'}).pipe(shareReplay(1));
-      this._fileCache.set(fileUrl, stream);
-    }
-
-    // The `take(1)` is necessary, because the Promise from `toPromise` resolves on complete.
-    return stream.pipe(take(1)).toPromise();
   }
 
   /**
