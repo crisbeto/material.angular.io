@@ -1,0 +1,67 @@
+@let tokens = tokensStream | async;
+@let item = docItem | async;
+@let filteredTokens = filteredTokensStream | async;
+
+@if (!tokens || !item || !filteredTokens) {
+  Loading...
+} @else if (tokens.length === 0) {
+  This component does not support styling using tokens
+} @else {
+  <h2 class="cdk-visually-hidden" tabindex="-1">How to style {{item.id}}</h2>
+  The <code>{{item.packageName}}/{{item.id}}</code> package is styled using <strong>{{tokens.length}} CSS
+  {{tokens.length === 1 ? 'variable' : 'variables'}}</strong>. Your app's theme already sets the values for
+  these variables, but you can customize the components further by overriding their values.
+
+  <div class="filters" [formGroup]="filters">
+    <mat-form-field class="name-field" subscriptSizing="dynamic" appearance="outline">
+      <mat-label>Filter by name</mat-label>
+      <input matInput formControlName="name"/>
+    </mat-form-field>
+
+    <mat-form-field subscriptSizing="dynamic" appearance="outline">
+      <mat-label>Filter by type</mat-label>
+      <mat-select formControlName="type">
+        <mat-option value="base">Base</mat-option>
+        <mat-option value="color">Color</mat-option>
+        <mat-option value="typography">Typography</mat-option>
+        <mat-option value="density">Density</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-button (click)="filters.reset()">Reset filters</button>
+  </div>
+
+  <div class="docs-markdown">
+    <table class="token-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th class="type-header">Type</th>
+          <th class="system-header">Based on system token</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (token of filteredTokens; track token.name) {
+          <tr>
+            <td>
+              <token-name [name]="token.name"/>
+            </td>
+            <td>{{token.type | titlecase}}</td>
+            <td>
+              @if (token.derivedFrom) {
+                <token-name [name]="token.derivedFrom"/>
+              } @else {
+                None
+              }
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="3">No tokens match the specified filters</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+}

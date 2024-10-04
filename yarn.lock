@@ -485,22 +485,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/components-examples@https://github.com/angular/material2-docs-content.git#8319d8fde93ab4ed2bd6e0b6e2a88d893661bdd5":
-  version: 18.0.0-next.0+sha-108cce3
-  resolution: "@angular/components-examples@https://github.com/angular/material2-docs-content.git#commit=8319d8fde93ab4ed2bd6e0b6e2a88d893661bdd5"
+"@angular/components-examples@https://github.com/angular/material2-docs-content.git#8bcc55512182e79cf20f1f5178bdc7bf642b2cb1":
+  version: 19.0.0-next.7+sha-b777c2d
+  resolution: "@angular/components-examples@https://github.com/angular/material2-docs-content.git#commit=8bcc55512182e79cf20f1f5178bdc7bf642b2cb1"
   dependencies:
     tslib: "npm:^2.3.0"
   peerDependencies:
-    "@angular/cdk": 18.0.0-next.0+sha-108cce3
-    "@angular/cdk-experimental": 18.0.0-next.0+sha-108cce3
-    "@angular/common": ^18.0.0-0 || ^18.1.0-0 || ^18.2.0-0 || ^18.3.0-0 || ^19.0.0-0
-    "@angular/core": ^18.0.0-0 || ^18.1.0-0 || ^18.2.0-0 || ^18.3.0-0 || ^19.0.0-0
-    "@angular/material": 18.0.0-next.0+sha-108cce3
-    "@angular/material-date-fns-adapter": 18.0.0-next.0+sha-108cce3
-    "@angular/material-experimental": 18.0.0-next.0+sha-108cce3
-    "@angular/material-luxon-adapter": 18.0.0-next.0+sha-108cce3
-    "@angular/material-moment-adapter": 18.0.0-next.0+sha-108cce3
-  checksum: 10c0/bb482f6b05bf6464724cf0479da189710e8b87be5419a86771dfbedc4650b57ebc352c300ea8ebfc6a2e9b0c9b2c8e7eda9af009915bf240b9a033f60c9b845b
+    "@angular/cdk": 19.0.0-next.7+sha-b777c2d
+    "@angular/cdk-experimental": 19.0.0-next.7+sha-b777c2d
+    "@angular/common": ^19.0.0-0 || ^19.1.0-0 || ^19.2.0-0 || ^19.3.0-0 || ^20.0.0-0
+    "@angular/core": ^19.0.0-0 || ^19.1.0-0 || ^19.2.0-0 || ^19.3.0-0 || ^20.0.0-0
+    "@angular/material": 19.0.0-next.7+sha-b777c2d
+    "@angular/material-date-fns-adapter": 19.0.0-next.7+sha-b777c2d
+    "@angular/material-experimental": 19.0.0-next.7+sha-b777c2d
+    "@angular/material-luxon-adapter": 19.0.0-next.7+sha-b777c2d
+    "@angular/material-moment-adapter": 19.0.0-next.7+sha-b777c2d
+  checksum: 10c0/ecf63b5506bf0086d9fd17e12b4c96bf514b36f572dffbd7f5f4bbffcf68eee7f9fdcf0d3a5510c10678bc9f9794588a13a631a7035048f596cd8edf7de91446
   languageName: node
   linkType: hard
 
@@ -12279,7 +12279,7 @@ __metadata:
     "@angular/common": "npm:^19.0.0-next.2"
     "@angular/compiler": "npm:^19.0.0-next.2"
     "@angular/compiler-cli": "npm:^19.0.0-next.2"
-    "@angular/components-examples": "https://github.com/angular/material2-docs-content.git#8319d8fde93ab4ed2bd6e0b6e2a88d893661bdd5"
+    "@angular/components-examples": "https://github.com/angular/material2-docs-content.git#8bcc55512182e79cf20f1f5178bdc7bf642b2cb1"
     "@angular/core": "npm:^19.0.0-next.2"
     "@angular/forms": "npm:^19.0.0-next.2"
     "@angular/google-maps": "npm:^19.0.0-next.2"
